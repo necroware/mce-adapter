@@ -35,8 +35,8 @@ was heavily inspired by a youtube video by TheRasteri, where he evaluates the
 output possibilites of an old PC, talks about the technical background and
 creates his own adapter. You can see the video here: 
 
-Part 1: https://www.youtube.com/watch?v=kHhpTq-WSJk&t=396s
-Part 2: https://www.youtube.com/watch?v=vwKA1z8tg1g&t=931s
+* Part 1: https://www.youtube.com/watch?v=kHhpTq-WSJk&t=396s
+* Part 2: https://www.youtube.com/watch?v=vwKA1z8tg1g&t=931s
 
 As I saw his solution with a ROM, I instantly thought, that the same thing can
 be done using a programmable logic IC, like GAL16V8. It would have some benefits
