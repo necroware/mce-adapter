@@ -1,5 +1,7 @@
 # MCE Adapter
 
+![MCE Adapter](shim/mce-adpter.svg)
+
 The MCA-Adapter is a device, which can convert MDA (and Hercules), EGA and CGA
 to analogue RGBS signal.
 
