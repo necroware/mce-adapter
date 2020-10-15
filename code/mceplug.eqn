@@ -1,0 +1,95 @@
+
+; GBS-8200 MCE Adapter
+; Copyright (C) 2019 by Scorp (Necroware)
+;
+; This program is free software: you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation, version 3.
+;
+; This program is distributed in the hope that it will be useful, but
+; WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+; General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with this program. If not, see <http://www.gnu.org/licenses/>.
+;
+; Version: 0.4.0
+
+CHIP MCE 16V8
+
+gnd=10 ; Ground
+vcc=20 ; +5V
+
+; -----------------------------------------------------------------------------
+; Input
+; -----------------------------------------------------------------------------
+in_h=2    ; H-Sync
+in_v=3    ; V-Sync
+in_r=4    ; Red
+in_g=5    ; Green
+in_b=6    ; Blue
+in_ib=7   ; Blue intensity or white in MDA
+in_ir=8   ; Red intensity
+in_ig=9   ; Green intensity or intensity in MDA/CGA
+in_sw2=11 ; Switch 2
+in_sw1=12 ; Switch 1
+
+; -----------------------------------------------------------------------------
+; Output
+; -----------------------------------------------------------------------------
+out_b=13  ; Blue
+out_ib=14 ; Blue intensity
+out_g=15  ; Green
+out_ig=16 ; Green intensity
+out_r=17  ; Red
+out_ir=18 ; Red intensity
+out_s=19  ; Combined HV-Sync
+
+; -----------------------------------------------------------------------------
+; Switch setup
+; -----------------------------------------------------------------------------
+@define mda "in_sw1 * in_sw2"
+@define cga "/in_sw1 * in_sw2"
+@define ega "/in_sw1 * /in_sw2"
+
+; -----------------------------------------------------------------------------
+; Separated color components
+; -----------------------------------------------------------------------------
+
+; MDA has only one color and one intensity
+; The "white" color can be simulated by setting RGB to 1,1,1
+@define mda_w  "mda * in_ib"
+@define mda_i  "mda * in_ig"
+
+; CGA has RGB color and one intensity
+; It has a hack for brown color on R * G * /B * /I. We can simulate this
+; in such combination by setting the green color to 0 and intensity to 1
+@define cga_r  "cga * in_r"
+@define cga_g1 "cga * in_g * /in_r"
+@define cga_g2 "cga * in_g * in_b"
+@define cga_g3 "cga * in_g * in_ig"
+@define cga_b  "cga * in_b"
+@define cga_i1 "cga * in_ig"
+@define cga_i2 "cga * /in_ig * in_r * in_g * /in_b"
+
+; EGA has RGB color and separate intensity for each channel
+@define ega_r  "ega * in_r"
+@define ega_g  "ega * in_g"
+@define ega_b  "ega * in_b"
+@define ega_ir "ega * in_ir"
+@define ega_ig "ega * in_ig"
+@define ega_ib "ega * in_ib"
+
+; -----------------------------------------------------------------------------
+EQUATIONS
+; -----------------------------------------------------------------------------
+
+out_s = in_v * in_h + /in_v * /in_h
+out_r = mda_w + cga_r + ega_r
+out_g = mda_w + cga_g1 + cga_g2 + cga_g3 + ega_g
+out_b = mda_w + cga_b + ega_b
+out_ir = mda_i + cga_i1 + ega_ir
+out_ig = mda_i + cga_i1 + cga_i2 + ega_ig
+out_ib = mda_i + cga_i1 + ega_ib
+
