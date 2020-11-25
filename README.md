@@ -1,4 +1,4 @@
-# MCE Adapter
+# MCE Adapter (Prototype!)
 
 ![MCE Adapter](shim/mce-adapter-pcb.png)
 
@@ -77,17 +77,18 @@ called V-Sync or vertical synchronization signal. The history of this principle
 goes many years back to cathode tubes, old TVs and monitors. This signals are
 used for the retraction of the ray in the monitor, so it knows when to restart
 to draw the next line or the whole screen. The history and the theory behind it
-is quite long it is not the point here. Important to understand is that
-different video modes, MDA, CGA, EGA are using different V- and H-Sync 
+is quite long and is not the point here. Important to understand is that
+different video modes, MDA, CGA, EGA are using different V- and H-Sync
 frequencies. It is important for the monitor to be able to distinguish them and
-it does it by the frequency of the sync signals, but also by a polarity of the
-signals. Sometimes is one of the sync signals high positive and sometimes low
-positive. This also helps the monitor to detect it properly, but some monitors
-don't take it into account and in such cases the Jumper J3 can be helpful. If
-you have problems with the sync signal with one of the modes try to flip this
-jumper to get the sync signal inverted. This jumper has however no meaning, if
-you set the adapter to HV-sync mode (Jumper J4 to 2-3). Here is the overview of
-the different video modes, their sync frequencies and sync polarities:
+it does by the frequency of the sync signals, but also by a polarity of the
+signals. Sometimes one of the sync signals is high positive and sometimes it is
+low positive. This also helps the monitor to detect it properly, but some
+monitors don't take it into account and in such cases the Jumper J3 can be
+helpful. If you have problems with the sync signal with one of the modes try to
+flip this jumper to get the sync signal inverted. This jumper has however no
+meaning, if you set the adapter to HV-sync mode (Jumper J4 to 2-3). Here is the
+overview of the different video modes, their sync frequencies and sync
+polarities:
 
 Video Mode | H-Sync  | V-Sync
 -----------|---------|-------
@@ -96,10 +97,11 @@ CGA        | + 15kHz | + 60Hz
 EGA low    | + 15kHz | + 60Hz
 EGA high   | + 21kHz | - 60Hz
 
-In the columns H- and V-Sync + means high-positive and - means low-positive sync
-signal. EGA exists in two variants low resolution of up to 640x200 and high
-resolution with up to 720x350, hence the higher H-Sync frequency of 21kHz, since
-15kHz are just not enough to draw 350 lines with 60Hz.
+Usually, you only need to invert the composite sync signal only if V-Sync signal
+is negative. In the columns H- and V-Sync + means high-positive and - means
+low-positive sync signal. EGA exists in two variants low resolution of up to
+640x200 and high resolution with up to 720x350, hence the higher H-Sync
+frequency of 21kHz, since 15kHz are just not enough to draw 350 lines with 60Hz.
 
 # How to use this stuff?
 
