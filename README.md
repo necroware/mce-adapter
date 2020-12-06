@@ -69,7 +69,7 @@ MDA/Hercules green (18kHz) | OFF | ON  | ON
 CGA/EGA 16 colors (15kHz)  | ON  | OFF | OFF
 EGA 64 color (21kHz)       | ON  | ON  | ON
 
-# Composite signal
+# Composite sync signal
 
 Every end of line the graphics adapter sends a so called H-Sync or horizontal
 synchronization signal. Every end of the screen the graphics adapter sends so
