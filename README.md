@@ -15,7 +15,7 @@ adapter to test some of my old graphics cards.
 If you want to connect your old PC with MDA, CGA or EGA graphics to a more
 modern VGA display, it's going to be difficult. First of all, this old graphics
 standards are digital, so RGB information is sent as a bunch of 1 and 0. VGA on
-the other hand understands only analog signals, so f.e. the intensity of the red
+the other hand understands only analogue signals, so f.e. the intensity of the red
 color is defined by some value between two voltages and not by a discrete value.
 So the first job of this adapter is to translates digital video signals into
 analogue video signals. However, this is may be not enough, since the horizontal
@@ -50,8 +50,8 @@ it is.
 The adapter can convert MDA, Hercules, CGA, 16 colors EGA and 64 colors EGA to
 standard VGA (RGBHV) or RGBS (combined HV-sync). The sync output frequency is
 always the same as the input frequency. The adapter can only compose HV-sync,
-but doesn't actively change it. The digital color signal is converted to analog
-color signal, so any analog RGB monitor should understand it.
+but doesn't actively change it. The digital color signal is converted to analogue
+color signal, so any analogue RGB monitor should understand it.
 
 # Jumpers and switches
 
@@ -123,9 +123,10 @@ J123       |1  |C65114 |pin header 2x3
 J4         |1  |C429954|pin header 1x3
 PWR1       |1  |C46398 |USB-B mini port
 PWR2       |1  |C152154|pin header 1x2 (+5V connector)
-R1 R2 R3   |3  |C58592 |resistor 470 Ohm
+R1 R2 R3   |3  |C58592 |resistor 680 Ohm
 R4 R5 R6   |3  |C58608 |resistor 330 Ohm
-R7 R8      |2  |C57438 |resistor 100 Ohm
+R7         |1  |C57438 |resistor 100 Ohm
+R8         |1  |C714180|resistor 1k Ohm
 U1         |1  |C6509  |GAL16V8 (or compatible)
 VIDEO_IN1  |1  |C141882|DB9 female connector (MDA/EGA/CGA)
 VIDEO_OUT1 |1  |C75754 |DIB15 female connector (VGA)
