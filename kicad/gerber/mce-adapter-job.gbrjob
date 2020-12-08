@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "5.1.7"
+      "Version":     "5.1.8"
     },
-    "CreationDate":  "2020-11-23T22:38:14+01:00"
+    "CreationDate":  "2020-12-08T11:42:19+01:00"
   },
   "GeneralSpecs":
   {
@@ -15,7 +15,7 @@
     {
       "Name": "mce-adapter",
       "GUID": "6d63652d-6164-4617-9074-65722e6b6963",
-      "Revision": "0.7"
+      "Revision": "0.7.1"
     },
     "Size":
     {
