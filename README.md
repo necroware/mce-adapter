@@ -126,7 +126,7 @@ PWR2       |1  |C152154|pin header 1x2 (+5V connector)
 R1 R2 R3   |3  |C58592 |resistor 680 Ohm
 R4 R5 R6   |3  |C58608 |resistor 330 Ohm
 R7         |1  |C57438 |resistor 100 Ohm
-R8         |1  |C714180|resistor 1k Ohm
+R8         |1  |C57435 |resistor 1k Ohm
 U1         |1  |C6509  |GAL16V8 (or compatible)
 VIDEO_IN1  |1  |C141882|DB9 female connector (MDA/EGA/CGA)
 VIDEO_OUT1 |1  |C75754 |DIB15 female connector (VGA)
