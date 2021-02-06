@@ -13,7 +13,6 @@ to analogue RGBS signal. It supports following features.
 - Includes IBM's "brown-hack"for CGA and 16-colors EGA modes
 - Switchable green and white monochrome screen emulation
 
-
 ## Why did I make this?
 
 Because why not? I wanted to get some practice with EDA and I needed such an
@@ -140,3 +139,7 @@ U1         |1  |C6509  |GAL16V8 (or compatible)
 VIDEO_IN1  |1  |C141882|DB9 female connector (MDA/EGA/CGA)
 VIDEO_OUT1 |1  |C75754 |DIB15 female connector (VGA)
 
+## Tested with following monitors
+- GBS-8200 with original hardware (only 15kHz modes work)
+- GBS-8200 with gbs-control firmaware (Hercules and hi-res EGA sync unstable)
+- NEC Multisync LCD1970NX 19" TFT (everything works fine, Hercules is not in full screen, but works stable)
