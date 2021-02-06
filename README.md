@@ -14,12 +14,12 @@ to analogue RGBS signal. It supports following features.
 - Switchable green and white monochrome screen emulation
 
 
-# Why did I make this?
+## Why did I make this?
 
 Because why not? I wanted to get some practice with EDA and I needed such an
 adapter to test some of my old graphics cards.
 
-# Why might somebody need this?
+## Why might somebody need this?
 
 If you want to connect your old PC with MDA, CGA or EGA graphics to a more
 modern VGA display, it's going to be difficult. First of all, this old graphics
@@ -39,7 +39,7 @@ adapter to connect a MDA, CGA or EGA graphics card to an analogue RGB monitor,
 either by using GBS-8200 converter or the adapter standalone, in case your
 monitor supports horizontal frequencies down to 15kHz.
 
-# Why didn't I take an existing solution?
+## Why didn't I take an existing solution?
 
 Well, first of all, I wanted to gain some experience in this. Second, I actually
 was heavily inspired by a YouTube video by TheRasteri, where he evaluates the
@@ -54,7 +54,7 @@ be done using a programmable logic IC, like GAL16V8. It would have some benefits
 in timing behaviour over a solution with ROM and be also very flexible. So, here
 it is.
 
-# Which modes does it support?
+## Which modes does it support?
 
 The adapter can convert MDA, Hercules, CGA, 16 colors EGA and 64 colors EGA to
 standard VGA (RGBHV) or RGBS (combined HV-sync). The sync output frequency is
@@ -62,7 +62,7 @@ always the same as the input frequency. The adapter can only compose HV-sync,
 but doesn't actively change it. The digital color signal is converted to analogue
 color signal, so any analogue RGB monitor should understand it.
 
-# Jumpers and switches
+## Jumpers and switches
 
 Basic jumper description:
 * J1 mono (jumper off) or color (jumper on)
@@ -78,7 +78,7 @@ MDA/Hercules green (18kHz) | OFF | ON  | ON
 CGA/EGA 16 colors (15kHz)  | ON  | OFF | OFF
 EGA 64 color (21kHz)       | ON  | ON  | ON
 
-# Composite sync signal
+## Composite sync signal
 
 Every end of line the graphics adapter sends a so called H-Sync or horizontal
 synchronization signal. Every end of the screen the graphics adapter sends so
@@ -112,7 +112,7 @@ low-positive sync signal. EGA exists in two variants low resolution of up to
 640x200 and high resolution with up to 720x350, hence the higher H-Sync
 frequency of 21kHz, since 15kHz are just not enough to draw 350 lines with 60Hz.
 
-# How to use this stuff?
+## How to use this stuff?
 
 1. Take the gerber files and make a PCB.
 2. Assemble the board
@@ -121,7 +121,7 @@ frequency of 21kHz, since 15kHz are just not enough to draw 350 lines with 60Hz.
 5. Put it into the board and connect the cables
    f.e. CGA -> MCE Adapter -> GBS-8200 -> Analog RGB Monitor
 
-# Bill of materials
+## Bill of materials
 
 Reference  |#  |LCSC   |Description
 -----------|---|-------|-------------------------------------
