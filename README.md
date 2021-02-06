@@ -3,7 +3,16 @@
 ![MCE Adapter](shim/mce-adapter-pcb.png)
 
 The MCA-Adapter is a device, which can convert MDA (and Hercules), EGA and CGA
-to analogue RGBS signal.
+to analogue RGBS signal. It supports following features.
+
+- Converts digital MDA, Hercules, CGA, low-res EGA, high-res EGA  to analog RGBS or RGBHV/VGA signal
+- Color DAC for 3, 4, 16 and 64 color modes
+- Switchable composite sync from H- and V-Sync
+- Loop through HV-Sync, colors conversion only mode
+- Switchable composite sync inversion
+- Includes IBM's "brown-hack"for CGA and 16-colors EGA modes
+- Switchable green and white monochrome screen emulation
+
 
 # Why did I make this?
 
