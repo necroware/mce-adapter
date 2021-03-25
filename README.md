@@ -13,6 +13,11 @@ to analogue RGBS signal. It supports following features.
 - Includes IBM's "brown-hack"for CGA and 16-colors EGA modes
 - Switchable green and white monochrome screen emulation
 
+Youtube Videos:
+- ![MCE-Adapter (part 1): Why GBS-8200 is not a CGA/EGA converter](https://youtu.be/7c3yLX52ZEs)
+- ![MCE-Adapter (part 2): Theory and implementation](https://youtu.be/aUFKB4b5KpE)
+- ![MCE-Adapter (part 3): Showtime](https://youtu.be/F1685u-QQ0k)
+
 ## Why did I make this?
 
 Because why not? I wanted to get some practice with EDA and I needed such an
