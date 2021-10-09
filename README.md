@@ -1,4 +1,4 @@
-# MCE Adapter (Prototype!)
+# Modified MCE Adapter (Prototype!) to be smaller, not better
 
 ![MCE Adapter](shim/mce-adapter-pcb.png)
 
