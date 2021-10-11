@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "MCE Adapter"
 Date "2021-10-11"
-Rev "0.7.2"
+Rev "0.8.0"
 Comp "Necroware"
 Comment1 "by Scorp"
 Comment2 ""
@@ -436,12 +436,46 @@ $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J123
 U 1 1 5FB500B7
 P 4350 4050
-F 0 "J123" H 4400 4367 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 4400 4276 50  0000 C CNN
+F 0 "J123" H 4400 4400 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 4350 4300 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 4350 4050 50  0001 C CNN
 F 3 "~" H 4350 4050 50  0001 C CNN
 F 4 "C65114" H 4350 4050 50  0001 C CNN "LCSC"
 	1    4350 4050
 	1    0    0    -1  
 $EndComp
+$Comp
+L Switch:SW_DIP_x03 SW1
+U 1 1 61643477
+P 5450 4150
+F 0 "SW1" H 5450 4617 50  0000 C CNN
+F 1 "SW_DIP_x03" H 5450 4526 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_DIP_SPSTx03_Slide_9.78x9.8mm_W7.62mm_P2.54mm" H 5450 4150 50  0001 C CNN
+F 3 "~" H 5450 4150 50  0001 C CNN
+	1    5450 4150
+	1    0    0    -1  
+$EndComp
+Text GLabel 5150 3950 0    50   Input ~ 0
+SW1_IN
+Text GLabel 5150 4050 0    50   Input ~ 0
+SW2_IN
+Text GLabel 5150 4150 0    50   Input ~ 0
+SW3_IN
+$Comp
+L power:GND #PWR0102
+U 1 1 61654423
+P 5750 4150
+F 0 "#PWR0102" H 5750 3900 50  0001 C CNN
+F 1 "GND" H 5755 3977 50  0000 C CNN
+F 2 "" H 5750 4150 50  0001 C CNN
+F 3 "" H 5750 4150 50  0001 C CNN
+	1    5750 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 3950 5750 4050
+Wire Wire Line
+	5750 4050 5750 4150
+Connection ~ 5750 4050
+Connection ~ 5750 4150
 $EndSCHEMATC
