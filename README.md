@@ -136,7 +136,7 @@ J123       |1  |C65114 |pin header 2x3
 J4         |1  |C429954|pin header 1x3
 PWR1       |1  |C46398 |USB-B mini port
 PWR2       |1  |C152154|pin header 1x2 (+5V connector)
-R1 R2 R3   |3  |C58592 |resistor 680 Ohm
+R1 R2 R3   |3  |C58592 |resistor 470 Ohm (or 680 Ohm)
 R4 R5 R6   |3  |C58608 |resistor 330 Ohm
 R7         |1  |C57438 |resistor 100 Ohm
 R8         |1  |C57435 |resistor 1k Ohm
