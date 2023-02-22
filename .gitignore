@@ -1,6 +1,4 @@
-/kicad/*-bak
-/kicad/*-cache.lib
-/kicad/*-cache
+/kicad/*-backups/
 /code/*.JED
 /code/*.LOG
 
