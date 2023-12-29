@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.3
+          "min_clearance": 0.254
         }
       },
       "diff_pair_dimensions": [
@@ -55,10 +55,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "courtyards_overlap|157979999|107763001|00000000-0000-0000-0000-00006164b048|00000000-0000-0000-0000-00006164b107",
-        "courtyards_overlap|157979999|107763001|00000000-0000-0000-0000-00006164b107|00000000-0000-0000-0000-00006164b048"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -456,96 +453,8 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "Default",
-        "pattern": "B_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "B_OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "G_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "G_OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "H_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "H_OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "IB_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "IG_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "IR_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R1-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R2-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R3-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R4-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R5-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R6-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-(R7-Pad2)"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R_OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SW1_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SW2_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SW3_IN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "S_OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "V_IN"
+        "netclass": "Power",
+        "pattern": "/VCC"
       },
       {
         "netclass": "Power",
@@ -553,11 +462,7 @@
       },
       {
         "netclass": "Power",
-        "pattern": "VCC"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "Net-(D1-Pad2)"
+        "pattern": "Net-(D1-A)"
       }
     ]
   },

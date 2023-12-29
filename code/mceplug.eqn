@@ -1,4 +1,4 @@
-; GBS-8200 MCE Adapter
+; MCE Adapter
 ; Copyright (C) 2019 by Scorp (Necroware)
 ;
 ; This program is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
 ; You should have received a copy of the GNU General Public License
 ; along with this program. If not, see <http://www.gnu.org/licenses/>.
 ;
-; Version: 0.6.0
+; Version: 0.10.0
 
 CHIP MCE 16V8
 
@@ -31,9 +31,9 @@ r=5     ; Red
 bi=6    ; Blue intensity or white in MDA
 ri=7    ; Red intensity
 gi=8    ; Green intensity or intensity in MDA/CGA
-/sw3=9  ; Switch sync invert
-/sw2=11 ; Switch mode
-/sw1=12 ; Switch color/mono
+m=9     ; Sync mode detect
+/sw2=11 ; Switch
+/sw1=12 ; Switch
 
 ; -----------------------------------------------------------------------------
 ; Output
@@ -44,39 +44,51 @@ out_g=15  ; Green
 out_gi=16 ; Green intensity
 out_r=17  ; Red
 out_ri=18 ; Red intensity
-out_s=19  ; Combined HV-Sync
+out_s=19  ; C-Sync
 
 ; -----------------------------------------------------------------------------
 ; Separated color components
 ; -----------------------------------------------------------------------------
 
-@define mda "/sw1"
-@define cga "sw1 * /sw2"
-@define ega "sw1 * sw2"
+@define amber "/sw1 *  sw2"  ; MDA/Hercules amber mode
+@define green " sw1 * /sw2"  ; MDA/Hercules green mode
+@define white " sw1 *  sw2"  ; MDA/Hercules white mode
+@define color "/sw1 * /sw2"  ; CGA/EGA color mode
+@define cga   "color * /m"   ; CGA/LowRes-EGA mode (16-colors)
+@define ega   "color * m"    ; HiRes-EGA mode (64-colors)
 
-; MDA has only one color and one intensity
-; In mode1, the B/W monitor can be simulated by setting RGB to 1,1,1
-; In mode2, the B/G monitor can be simulated by setting RGB to 0,1,0
-@define mda_r "mda * bi * /sw2"
-@define mda_g "mda * bi"
-@define mda_b "mda * bi * /sw2"
-@define mda_i "mda * gi"
+; MDA has only one color (bi) and one intensity (gi)
+; The B/W monitor can be simulated by setting RGB to 1,1,1
+; The B/G monitor can be simulated by setting RGB to 0,1,0
+; The B/A monitor can be simulated by setting RGB to 1,1,0
+@define amber_r  "amber * bi"
+@define amber_g  "amber * bi"
+@define green_g  "green * bi"
+@define white_r  "white * bi"
+@define white_g  "white * bi"
+@define white_b  "white * bi"
+@define amber_ri "amber * bi"
+@define amber_gi "amber * gi"
+@define green_gi "green * gi"
+@define white_ri "white * gi"
+@define white_gi "white * gi"
+@define white_bi "white * gi"
 
-; CGA has RGB color and one intensity
-; It has a hack for brown color on R * G * /B * /I. We can simulate this
+; Color common output
+@define color_r "color * r"
+@define color_b "color * b"
+
+; CGA/LowRes-EGA has RGB color and one intensity
+; It has a hack for brown color on G * R * /B * /I. We can simulate this
 ; in such combination by setting the green color to 0 and intensity to 1
-@define cga_r  "cga * r"
-@define cga_g1 "cga * g * /r"
-@define cga_g2 "cga * g * b"
-@define cga_g3 "cga * g * gi"
-@define cga_b  "cga * b"
-@define cga_i1 "cga * gi"
-@define cga_i2 "cga * r * g * /b * /gi"
+@define cga_g1  "cga * g * /r"
+@define cga_g2  "cga * g * b"
+@define cga_g3  "cga * g * gi"
+@define brown_i "cga * g * r * /b * /gi"
+@define cga_i   "cga * gi"
 
-; EGA has RGB color and separate intensity for each channel
-@define ega_r  "ega * r"
+; HiRes-EGA has RGB color and separate intensity for each channel and no brown hack
 @define ega_g  "ega * g"
-@define ega_b  "ega * b"
 @define ega_ri "ega * ri"
 @define ega_gi "ega * gi"
 @define ega_bi "ega * bi"
@@ -84,11 +96,11 @@ out_s=19  ; Combined HV-Sync
 ; -----------------------------------------------------------------------------
 EQUATIONS
 ; -----------------------------------------------------------------------------
-out_s = /sw3 * v * h + /sw3 * /v * /h + sw3 * v * /h + sw3 * /v * h
-out_r = mda_r + cga_r + ega_r
-out_g = mda_g + cga_g1 + cga_g2 + cga_g3 + ega_g
-out_b = mda_b + cga_b + ega_b
-out_ri = mda_i + cga_i1 + ega_ri
-out_gi = mda_i + cga_i1 + cga_i2 + ega_gi
-out_bi = mda_i + cga_i1 + ega_bi
+out_s = m * v * h + m * /v * /h + /m * v * /h + /m * /v * h
+out_r = amber_r + white_r + color_r
+out_g = amber_g + green_g + white_g + cga_g1 + cga_g2 + cga_g3 + ega_g
+out_b = white_b + color_b
+out_ri = amber_ri + white_ri + cga_i + ega_ri
+out_gi = amber_gi + green_gi + white_gi + cga_i + ega_gi + brown_i
+out_bi = white_bi + cga_i + ega_bi
 
