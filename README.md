@@ -5,13 +5,13 @@
 The MCA-Adapter is a device, which can convert MDA (and Hercules), EGA and CGA
 to analogue RGBS signal. It supports following features.
 
-- Converts digital MDA, Hercules, CGA, low-res EGA, high-res EGA  to analog RGBS or RGBHV/VGA signal
+- Converts digital MDA, Hercules, CGA and EGA to analog RGBS or RGBHV/VGA signal
 - Color DAC for 3, 4, 16 and 64 color modes
 - Switchable composite sync from H- and V-Sync
 - Loop through HV-Sync, colors conversion only mode
-- Switchable composite sync inversion
 - Includes IBM's "brown-hack"for CGA and 16-colors EGA modes
-- Switchable green and white monochrome screen emulation
+- Hi/Low resolution EGA mode autodect for proper color representation
+- Switchable green, white and amber monochrome screen emulation
 
 Youtube Videos:
 - Part 1: Why GBS-8200 is not a CGA/EGA converter https://youtu.be/7c3yLX52ZEs
@@ -68,53 +68,21 @@ color signal, so any analogue RGB monitor should understand it.
 
 ## Jumpers and switches
 
-Basic jumper description:
-* J1 mono (jumper off) or color (jumper on)
-* J2 mode select (depends on the color or mono mode)
-* J3 invert composite sync signal (see composite signal)
-* J4 composite sync (1-2) or HV-sync (2-3)
+ATTENTION: Jumper settings changed compared to previous revisions 
 
-Mode selection:
-Mode                       | J1  | J2  | J3
----------------------------|-----|-----|-----
-MDA/Hercules white (18kHz) | OFF | OFF | ON
-MDA/Hercules green (18kHz) | OFF | ON  | ON
-CGA/EGA 16 colors (15kHz)  | ON  | OFF | OFF
-EGA 64 color (21kHz)       | ON  | ON  | ON
+Color mode selection J1:
+Mode                       | 1-2 | 3-4 
+---------------------------|-----|-----
+CGA/EGA (15kHz / 21kHz)    | OFF | OFF 
+MDA/Hercules white (18kHz) | ON  | ON
+MDA/Hercules green (18kHz) | ON  | OFF
+MDA/Hercules amber (18kHz) | OFF | ON
 
-## Composite sync signal
-
-Every end of line the graphics adapter sends a so called H-Sync or horizontal
-synchronization signal. Every end of the screen the graphics adapter sends so
-called V-Sync or vertical synchronization signal. The history of this principle
-goes many years back to cathode tubes, old TVs and monitors. This signals are
-used for the retraction of the ray in the monitor, so it knows when to restart
-to draw the next line or the whole screen. The history and the theory behind it
-is quite long and is not the point here. Important to understand is that
-different video modes, MDA, CGA, EGA are using different V- and H-Sync
-frequencies. It is important for the monitor to be able to distinguish them and
-it does by the frequency of the sync signals, but also by a polarity of the
-signals. Sometimes one of the sync signals is high positive and sometimes it is
-low positive. This also helps the monitor to detect it properly, but some
-monitors don't take it into account and in such cases the Jumper J3 can be
-helpful. If you have problems with the sync signal with one of the modes try to
-flip this jumper to get the sync signal inverted. This jumper has however no
-meaning, if you set the adapter to HV-sync mode (Jumper J4 to 2-3). Here is the
-overview of the different video modes, their sync frequencies and sync
-polarities:
-
-Video Mode | H-Sync  | V-Sync
------------|---------|-------
-MDA        | + 18kHz | - 50Hz
-CGA        | + 15kHz | + 60Hz
-EGA low    | + 15kHz | + 60Hz
-EGA high   | + 21kHz | - 60Hz
-
-Usually, you only need to invert the composite sync signal only if V-Sync signal
-is negative. In the columns H- and V-Sync + means high-positive and - means
-low-positive sync signal. EGA exists in two variants low resolution of up to
-640x200 and high resolution with up to 720x350, hence the higher H-Sync
-frequency of 21kHz, since 15kHz are just not enough to draw 350 lines with 60Hz.
+Sync selectiom J2:
+Mode               | Setting
+-------------------|----------
+HV-Sync (VGA)      | 1-2
+C-Sync (Composite) | 2-3
 
 ## How to use this stuff?
 
@@ -127,25 +95,26 @@ frequency of 21kHz, since 15kHz are just not enough to draw 350 lines with 60Hz.
 
 ## Bill of materials
 
-Reference  |#  |LCSC   |Description
------------|---|-------|-------------------------------------
-C1         |1  |C383039|electrolythic capacitor 220µF
-D1         |1  |C402218|diode 1N5819
-H1         |1  |C492405|pin header 1x6
-J123       |1  |C65114 |pin header 2x3
-J4         |1  |C429954|pin header 1x3
-PWR1       |1  |C46398 |USB-B mini port
-PWR2       |1  |C152154|pin header 1x2 (+5V connector)
-R1 R2 R3   |3  |C58592 |resistor 470 Ohm (or 680 Ohm)
-R4 R5 R6   |3  |C58608 |resistor 330 Ohm
-R7         |1  |C57438 |resistor 100 Ohm
-R8         |1  |C57435 |resistor 1k Ohm
-U1         |1  |C6509  |GAL16V8B (or compatible)
-VIDEO_IN1  |1  |C141882|DB9 female connector (MDA/EGA/CGA)
-VIDEO_OUT1 |1  |C75754 |DIB15 female connector (VGA)
+Reference  |#  |LCSC    |Description
+-----------|---|--------|-------------------------------------
+C1 C2      |2  |C2839237|capacitor 1µF
+D1         |1  |C402218 |diode 1N5819
+H1         |1  |C492405 |pin header 1x6
+J1         |1  |C492419 |pin header 2x2
+J2         |1  |C429954 |pin header 1x3
+PWR1       |1  |C46398  |USB-B mini port
+PWR2       |1  |C152154 |pin header 1x2 (+5V connector)
+R1 R2      |2  |C119317 |resistor 470 Ohm
+R3 R5 R7   |3  |C2848597|resistor 1.3k Ohm
+R4 R6 R8   |3  |C119320 |resistor 680 Ohm
+R9         |1  |C173139 |resistor 10k Ohm
+U1         |1  |C6509   |GAL16V8B (or compatible)
+VIDEO_IN1  |1  |C141882 |DB9 female connector (MDA/EGA/CGA)
+VIDEO_OUT1 |1  |C75754  |DIB15 female connector (VGA)
 
 ## Tested with following monitors
 - GBS-8200 with original hardware (only 15kHz modes work)
 - GBS-8200 with gbs-control firmaware (Hercules and hi-res EGA sync unstable)
 - NEC Multisync LCD1970NX 19" TFT (everything works fine, Hercules is not in full screen, but works stable)
 - EIZO L365 15" TFT (only Hi-Res EGA works, doesn't support 15kHz CGA nor 50Hz Hercules)
+- Benq BL702A
