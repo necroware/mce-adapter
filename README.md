@@ -97,7 +97,7 @@ C-Sync (Composite) | 2-3
 
 Reference  |#  |LCSC    |Description
 -----------|---|--------|-------------------------------------
-C1 C2      |2  |C2839237|capacitor 1µF
+C1 C2      |2  |C472888 |capacitor 4.7µF
 D1         |1  |C402218 |diode 1N5819
 H1         |1  |C492405 |pin header 1x6
 J1         |1  |C492419 |pin header 2x2

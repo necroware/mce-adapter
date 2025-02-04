@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "MCE Adapter")
-		(date "2024-02-13")
-		(rev "0.10.1")
+		(date "2025-02-04")
+		(rev "0.10.2")
 		(company "Necroware")
 		(comment 1 "by Scorp")
 	)
@@ -3673,7 +3673,6 @@
 	)
 	(label "VCC"
 		(at 113.665 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4766,7 +4765,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" " ~"
+		(property "Datasheet" "~"
 			(at 19.05 81.28 0)
 			(effects
 				(font
@@ -4886,7 +4885,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" " ~"
+		(property "Datasheet" "~"
 			(at 43.18 45.72 0)
 			(effects
 				(font
@@ -6269,7 +6268,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "4,7u"
 			(at 75.565 83.82 0)
 			(effects
 				(font
@@ -6305,7 +6304,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2839237"
+		(property "LCSC" " C472888"
 			(at 80.645 81.28 0)
 			(effects
 				(font
@@ -6599,7 +6598,7 @@
 		(dnp no)
 		(uuid "fdb8663c-0299-49d7-827e-5c09354b6539")
 		(property "Reference" "C1"
-			(at 111.76 38.735 90)
+			(at 116.84 35.814 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6607,8 +6606,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
-			(at 116.84 38.735 90)
+		(property "Value" "4,7u"
+			(at 118.364 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6643,7 +6642,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2839237"
+		(property "LCSC" " C472888"
 			(at 113.03 36.83 0)
 			(effects
 				(font
