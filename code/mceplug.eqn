@@ -62,13 +62,13 @@ out_s=19  ; C-Sync
 ; The B/G monitor can be simulated by setting RGB to 0,1,0
 ; The B/A monitor can be simulated by setting RGB to 1,1,0
 @define amber_r  "amber * bi"
-@define amber_g  "amber * bi"
+@define amber_g  "amber * bi * gi"
 @define green_g  "green * bi"
 @define white_r  "white * bi"
 @define white_g  "white * bi"
 @define white_b  "white * bi"
 @define amber_ri "amber * bi"
-@define amber_gi "amber * gi"
+@define amber_gi "amber * bi * /gi"
 @define green_gi "green * gi"
 @define white_ri "white * gi"
 @define white_gi "white * gi"
