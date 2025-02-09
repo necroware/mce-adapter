@@ -104,7 +104,7 @@ J1         |1  |C492419 |pin header 2x2
 J2         |1  |C429954 |pin header 1x3
 PWR1       |1  |C46398  |USB-B mini port
 PWR2       |1  |C152154 |pin header 1x2 (+5V connector)
-R1 R2      |2  |C119317 |resistor 470 Ohm
+R1 R2      |2  |C713968 |resistor 33 Ohm
 R3 R5 R7   |3  |C2848597|resistor 1.3k Ohm
 R4 R6 R8   |3  |C119320 |resistor 680 Ohm
 R9         |1  |C173139 |resistor 10k Ohm
