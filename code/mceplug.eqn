@@ -96,7 +96,7 @@ out_s=19  ; C-Sync
 ; -----------------------------------------------------------------------------
 EQUATIONS
 ; -----------------------------------------------------------------------------
-out_s = m * v * h + m * /v * /h + /m * v * /h + /m * /v * h
+out_s = v * h + /v * /h
 out_r = amber_r + white_r + color_r
 out_g = amber_g + green_g + white_g + cga_g1 + cga_g2 + cga_g3 + ega_g
 out_b = white_b + color_b
