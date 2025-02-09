@@ -9,7 +9,7 @@
 	(paper "A4")
 	(title_block
 		(title "MCE Adapter")
-		(date "2025-02-04")
+		(date "2025-02-09")
 		(rev "0.10.2")
 		(company "Necroware")
 		(comment 1 "by Scorp")
@@ -458,7 +458,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "33"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "9b123644-f726-4fa5-8c4a-8c174eb6757c")
@@ -508,7 +508,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C119317"
+		(property "LCSC" "C713968"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1034,7 +1034,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "33"
 			(at 3.81 0 0)
 			(layer "F.SilkS")
 			(uuid "b8defbbb-6910-4d14-989e-5244defca1d7")
@@ -1084,7 +1084,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C119317"
+		(property "LCSC" "C713968"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)

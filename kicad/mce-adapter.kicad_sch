@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "MCE Adapter")
-		(date "2025-02-04")
+		(date "2025-02-09")
 		(rev "0.10.2")
 		(company "Necroware")
 		(comment 1 "by Scorp")
@@ -4968,7 +4968,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "33"
 			(at 97.79 120.65 90)
 			(effects
 				(font
@@ -5003,7 +5003,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C119317"
+		(property "LCSC" "C713968"
 			(at 97.79 120.65 0)
 			(effects
 				(font
@@ -6683,7 +6683,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "33"
 			(at 97.79 128.27 90)
 			(effects
 				(font
@@ -6718,7 +6718,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C119317"
+		(property "LCSC" "C713968"
 			(at 97.79 128.27 0)
 			(effects
 				(font
